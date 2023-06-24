@@ -4,6 +4,32 @@
   
     
     <entry>
+      <title>Windows系统使用傲梅工具迁移后产生的问题</title>
+      <link href="/2023/06/24/2023-06-24-Windows-Aomei-Move/"/>
+      <url>/2023/06/24/2023-06-24-Windows-Aomei-Move/</url>
+      
+        <content type="html"><![CDATA[<h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><p>因为笔记本更换了硬盘，所以系统盘也需要跟着换，就用了第三方PE内置的傲梅分区工具迁移系统<br>平时经常使用休眠(Hibernate)功能，不需要关机就能保存未完成的工作，比关机开机更方便一些，数据是存储在硬盘中，启动的时候再调用到内存中，并不费电<br>但是自从系统迁移后，晚上工作未完成第二天早上要唤醒的时候，总是重新开机，一开始我以为是没休眠成功，导致系统还在工作，把电量耗完了(学校宿舍晚上断电)<br>但是端午期间回家也出现了这个问题，可是疑惑的点在于我家并不会断电<br>于是我尝试休眠后立即唤醒，果然，还是从0启动系统<br>上网搜了一圈，是傲梅迁移系统的时候ESP分区出了问题</p><h1 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h1><p><em>不需要PE盘，但是期间不要重启电脑</em><br>使用Diskgenius等分区工具，将引导的ESP分区格式化，它会自动分配一个盘符如G:<br>打开Windows Powershell(Administrator)，输入<br>bcdboot C:\Windows(系统所在位置) &#x2F;s G:(ESP分区的盘符) &#x2F;f uefi (可选:&#x2F;l zh-cn)<br>然后Restart重启电脑一次，如果使用Power Off或者Hibernate是不行的，因为需要重启生效，如果选了这两种还会自动开机&#x2F;唤醒，然后你就不得不Restart<br>最后发现问问题已经解决，将ESP分区指派的盘符删除即可</p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Purple Software Galgame解包</title>
+      <link href="/2023/06/23/2023-06-23-Purple-Software-unpack/"/>
+      <url>/2023/06/23/2023-06-23-Purple-Software-unpack/</url>
+      
+        <content type="html"><![CDATA[<p>举例游戏为 天津罪 Amatsutsumi[GOG]</p><h2 id="关于video文件夹内OP的cmv文件提取视频"><a href="#关于video文件夹内OP的cmv文件提取视频" class="headerlink" title="关于video文件夹内OP的cmv文件提取视频"></a>关于video文件夹内OP的cmv文件提取视频</h2><h1 id="下载extractor"><a href="#下载extractor" class="headerlink" title="下载extractor"></a>下载extractor</h1><p><a href="https://dl.0251520.xyz/files/website/resources/extractor.zip">https://dl.0251520.xyz/files/website/resources/extractor.zip</a></p><h1 id="更改语言"><a href="#更改语言" class="headerlink" title="更改语言"></a>更改语言</h1><p>默认语言是Russian 可能会显示为乱码<br>进入第三个选项 更改语言为English即可</p><h1 id="转换cmv文件"><a href="#转换cmv文件" class="headerlink" title="转换cmv文件"></a>转换cmv文件</h1><p>右上角Select 选择单文件即可<br>Formats点击下方Load按键 选择Video.fmt<br>点击Start 搜索到一个ogg(音频)和一个ogm文件(视频)<br>用软件(如格式工厂)合成到一起即可</p><h2 id="关于pack文件夹内bg及voice等文件的提取"><a href="#关于pack文件夹内bg及voice等文件的提取" class="headerlink" title="关于pack文件夹内bg及voice等文件的提取"></a>关于pack文件夹内bg及voice等文件的提取</h2><h1 id="下载vn-tools大佬开源的arc-unpacker-并解压到任意位置"><a href="#下载vn-tools大佬开源的arc-unpacker-并解压到任意位置" class="headerlink" title="下载vn-tools大佬开源的arc_unpacker 并解压到任意位置"></a>下载vn-tools大佬开源的arc_unpacker 并解压到任意位置</h1><p><a href="https://github.com/vn-tools/arc_unpacker/releases">https://github.com/vn-tools/arc_unpacker/releases</a></p><h1 id="具体使用方法见文档"><a href="#具体使用方法见文档" class="headerlink" title="具体使用方法见文档"></a>具体使用方法见文档</h1><p>在解压后的文件夹内Shift+右键 Open command window here并输入<br>arc_unpacker D:\Amatsutsumi\data\pack\voice.cpz(文件位置，可以直接拖进cmd快速输入) –dec&#x3D;purple-software&#x2F;cpz6(解码方式，此处我使用cpz6)</p><h1 id="Purple-Software此软件的所有可解码格式"><a href="#Purple-Software此软件的所有可解码格式" class="headerlink" title="Purple Software此软件的所有可解码格式"></a>Purple Software此软件的所有可解码格式</h1><ul><li>purple-software&#x2F;cpz5</li><li>purple-software&#x2F;cpz6</li><li>purple-software&#x2F;pb3</li><li>purple-software&#x2F;ps2<br>可以自行使用arc_unpacker -d&#x3D;查看</li></ul>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Demo</title>
       <link href="/2023/06/08/2023-06-08-Demo/"/>
       <url>/2023/06/08/2023-06-08-Demo/</url>
