@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>彩虹六号:围攻无法登录报错3-0x0001000b</title>
+      <link href="/2023/06/25/2023-06-25-Rainbow6-network-error/"/>
+      <url>/2023/06/25/2023-06-25-Rainbow6-network-error/</url>
+      
+        <content type="html"><![CDATA[<h1 id="不要使用TUN模式"><a href="#不要使用TUN模式" class="headerlink" title="不要使用TUN模式"></a>不要使用TUN模式</h1><p>关闭Clash的TUN模式或Netch加速器!! 临时改用系统代理并开启其他加速器!!</p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Windows系统使用傲梅工具迁移后产生的问题</title>
       <link href="/2023/06/24/2023-06-24-Windows-Aomei-Move/"/>
       <url>/2023/06/24/2023-06-24-Windows-Aomei-Move/</url>
@@ -21,7 +34,7 @@
       <link href="/2023/06/23/2023-06-23-Purple-Software-unpack/"/>
       <url>/2023/06/23/2023-06-23-Purple-Software-unpack/</url>
       
-        <content type="html"><![CDATA[<p>举例游戏为 天津罪 Amatsutsumi[GOG]</p><h2 id="关于video文件夹内OP的cmv文件提取视频"><a href="#关于video文件夹内OP的cmv文件提取视频" class="headerlink" title="关于video文件夹内OP的cmv文件提取视频"></a>关于video文件夹内OP的cmv文件提取视频</h2><h1 id="下载extractor"><a href="#下载extractor" class="headerlink" title="下载extractor"></a>下载extractor</h1><p><a href="https://dl.0251520.xyz/files/website/resources/extractor.zip">https://dl.0251520.xyz/files/website/resources/extractor.zip</a></p><h1 id="更改语言"><a href="#更改语言" class="headerlink" title="更改语言"></a>更改语言</h1><p>默认语言是Russian 可能会显示为乱码<br>进入第三个选项 更改语言为English即可</p><h1 id="转换cmv文件"><a href="#转换cmv文件" class="headerlink" title="转换cmv文件"></a>转换cmv文件</h1><p>右上角Select 选择单文件即可<br>Formats点击下方Load按键 选择Video.fmt<br>点击Start 搜索到一个ogg(音频)和一个ogm文件(视频)<br>用软件(如格式工厂)合成到一起即可</p><h2 id="关于pack文件夹内bg及voice等文件的提取"><a href="#关于pack文件夹内bg及voice等文件的提取" class="headerlink" title="关于pack文件夹内bg及voice等文件的提取"></a>关于pack文件夹内bg及voice等文件的提取</h2><h1 id="下载vn-tools大佬开源的arc-unpacker-并解压到任意位置"><a href="#下载vn-tools大佬开源的arc-unpacker-并解压到任意位置" class="headerlink" title="下载vn-tools大佬开源的arc_unpacker 并解压到任意位置"></a>下载vn-tools大佬开源的arc_unpacker 并解压到任意位置</h1><p><a href="https://github.com/vn-tools/arc_unpacker/releases">https://github.com/vn-tools/arc_unpacker/releases</a></p><h1 id="具体使用方法见文档"><a href="#具体使用方法见文档" class="headerlink" title="具体使用方法见文档"></a>具体使用方法见文档</h1><p>在解压后的文件夹内Shift+右键 Open command window here并输入<br>arc_unpacker D:\Amatsutsumi\data\pack\voice.cpz(文件位置，可以直接拖进cmd快速输入) –dec&#x3D;purple-software&#x2F;cpz6(解码方式，此处我使用cpz6)</p><h1 id="Purple-Software此软件的所有可解码格式"><a href="#Purple-Software此软件的所有可解码格式" class="headerlink" title="Purple Software此软件的所有可解码格式"></a>Purple Software此软件的所有可解码格式</h1><ul><li>purple-software&#x2F;cpz5</li><li>purple-software&#x2F;cpz6</li><li>purple-software&#x2F;pb3</li><li>purple-software&#x2F;ps2<br>可以自行使用arc_unpacker -d&#x3D;查看</li></ul>]]></content>
+        <content type="html"><![CDATA[<p>举例游戏为 天津罪 Amatsutsumi[GOG]</p><h1 id="关于video文件夹内OP的cmv文件提取视频"><a href="#关于video文件夹内OP的cmv文件提取视频" class="headerlink" title="关于video文件夹内OP的cmv文件提取视频"></a>关于video文件夹内OP的cmv文件提取视频</h1><h2 id="下载extractor"><a href="#下载extractor" class="headerlink" title="下载extractor"></a>下载extractor</h2><p><a href="https://dl.0251520.xyz/files/website/resource/extractor.zip">https://dl.0251520.xyz/files/website/resource/extractor.zip</a></p><h2 id="更改语言"><a href="#更改语言" class="headerlink" title="更改语言"></a>更改语言</h2><p>默认语言是Russian 可能会显示为乱码<br>进入第三个选项 更改语言为English即可</p><h2 id="转换cmv文件"><a href="#转换cmv文件" class="headerlink" title="转换cmv文件"></a>转换cmv文件</h2><p>右上角Select 选择单文件即可<br>Formats点击下方Load按键 选择Video.fmt<br>点击Start 搜索到一个ogg(音频)和一个ogm文件(视频)<br>用软件(如格式工厂)合成到一起即可</p><h1 id="关于pack文件夹内bg及voice等文件的提取"><a href="#关于pack文件夹内bg及voice等文件的提取" class="headerlink" title="关于pack文件夹内bg及voice等文件的提取"></a>关于pack文件夹内bg及voice等文件的提取</h1><h2 id="下载vn-tools大佬开源的arc-unpacker-并解压到任意位置"><a href="#下载vn-tools大佬开源的arc-unpacker-并解压到任意位置" class="headerlink" title="下载vn-tools大佬开源的arc_unpacker 并解压到任意位置"></a>下载vn-tools大佬开源的arc_unpacker 并解压到任意位置</h2><p><a href="https://github.com/vn-tools/arc_unpacker/releases">https://github.com/vn-tools/arc_unpacker/releases</a></p><h2 id="具体使用方法见文档"><a href="#具体使用方法见文档" class="headerlink" title="具体使用方法见文档"></a>具体使用方法见文档</h2><p>在解压后的文件夹内Shift+右键 Open command window here并输入<br>arc_unpacker D:\Amatsutsumi\data\pack\voice.cpz(文件位置，可以直接拖进cmd快速输入) –dec&#x3D;purple-software&#x2F;cpz6(解码方式，此处我使用cpz6)</p><h2 id="Purple-Software此软件的所有可解码格式"><a href="#Purple-Software此软件的所有可解码格式" class="headerlink" title="Purple Software此软件的所有可解码格式"></a>Purple Software此软件的所有可解码格式</h2><ul><li>purple-software&#x2F;cpz5</li><li>purple-software&#x2F;cpz6</li><li>purple-software&#x2F;pb3</li><li>purple-software&#x2F;ps2</li></ul><p>可以自行使用”arc_unpacker -d&#x3D;”指令查看</p>]]></content>
       
       
       
@@ -34,7 +47,7 @@
       <link href="/2023/06/08/2023-06-08-Demo/"/>
       <url>/2023/06/08/2023-06-08-Demo/</url>
       
-        <content type="html"><![CDATA[<h2 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a>Demo</h2>]]></content>
+        <content type="html"><![CDATA[<h1 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a>Demo</h1>]]></content>
       
       
       
