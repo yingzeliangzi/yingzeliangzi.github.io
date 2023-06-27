@@ -4,9 +4,22 @@
   
     
     <entry>
+      <title>新版Steam更新后 在Steam或SteamLauncher快捷方式后添加-vgui参数可以回到旧版UI 正常使用皮肤</title>
+      <link href="/2023-06-27-steam-old-ui-skin/"/>
+      <url>/2023-06-27-steam-old-ui-skin/</url>
+      
+        <content type="html"><![CDATA[<p>此举例使用 <a href="https://github.com/Jack-Myth/Threshold-Miku">Jack-Myth&#x2F;Threshold-Miku</a> 皮肤</p><h1 id="右键Steam或SteamLauncher属性"><a href="#右键Steam或SteamLauncher属性" class="headerlink" title="右键Steam或SteamLauncher属性"></a>右键Steam或SteamLauncher属性</h1><p><em>SteamLauncher.exe是之前Steam修改了库的css代码 导致无法正常使用皮肤 大佬做的皮肤启动器</em><br>直接在目标后面加空格 输入-vgui 如下<br><img src="/pic/2023-06-27-steam-old-ui-skin/shortcut-properties.jpg" alt="shortcut properties"><br>如果是原版Steam快捷方式 也同理<br><img src="/pic/2023-06-27-steam-old-ui-skin/shortcut-properties-or.jpg" alt="shortcut properties"></p><h2 id="示例图-包括Steam登录-x2F-Steam商店都是原版UI-但是退出的动画是新版UI"><a href="#示例图-包括Steam登录-x2F-Steam商店都是原版UI-但是退出的动画是新版UI" class="headerlink" title="示例图 包括Steam登录&#x2F;Steam商店都是原版UI 但是退出的动画是新版UI"></a>示例图 包括Steam登录&#x2F;Steam商店都是原版UI 但是退出的动画是新版UI</h2><p><img src="/pic/2023-06-27-steam-old-ui-skin/steam-old-ui.jpg" alt="steam old ui"></p><h1 id="附加-如何开机启动带皮肤的Steam"><a href="#附加-如何开机启动带皮肤的Steam" class="headerlink" title="附加: 如何开机启动带皮肤的Steam"></a>附加: 如何开机启动带皮肤的Steam</h1><h2 id="前因"><a href="#前因" class="headerlink" title="前因"></a>前因</h2><p>平时打游戏爱好为主 所以开机选择自动启动Steam 虽然内存占用多一点 有时候达到300M 但是不怎么吃CPU 就一直放着了<br>但是如果是加了启动项 和 使用大佬自制皮肤启动器 该如何设置呢?</p><h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>使用Windows自带的计划任务(Task Scheduler)<br>右键此电脑-管理(This PC-Manage) 点进Task Scheduler Library<br><img src="/pic/2023-06-27-steam-old-ui-skin/task-scheduler-library.jpg" alt="task-scheduler-library"><br>选择新建任务(Create Task…)</p><h3 id="General"><a href="#General" class="headerlink" title="General"></a>General</h3><p>名称和描述随便填写 自己认识即可 无需英文<br>安全选项第一个即可 当你的用户登录时<br><img src="/pic/2023-06-27-steam-old-ui-skin/create-task-general.jpg" alt="general"></p><h3 id="Triggers"><a href="#Triggers" class="headerlink" title="Triggers"></a>Triggers</h3><p>点击下面的新建(New…)<br>在最上面选择触发条件 在用户登录时(At log on)<br>下面的启用(Enable)会自动勾选<br><img src="/pic/2023-06-27-steam-old-ui-skin/create-task-trigger.jpg" alt="trigger"><br>然后点击确定</p><h3 id="Actions"><a href="#Actions" class="headerlink" title="Actions"></a>Actions</h3><p>点击下面的新建(New…)<br>选择默认的Action-打开一个应用(Start a program)<br>程序或脚本选择Steam或SteamLauncher(选择快捷方式也可以)<br>下面的附加选项(Arguments)填入”-vgui”无需空格<br><img src="/pic/2023-06-27-steam-old-ui-skin/create-task-action.jpg" alt="action"></p><p>最后确定创建 记得在任务管理器-启动或者Steam内关闭它的自动启动(不是我们创建的这个任务)<br>后面的选项不用管了 如果出现笔记本电脑有时候电池无法自动启动Steam的话<br>检查创建任务的第四步(Conditions) 文中没有提到<br>取消勾选电源里面的如果电脑转为电池供电则停止任务(Stop if the computer switches to battery power)<br>如果不想开机启动 再来计划任务把你之前设置的名称指定的任务删除即可 或者disable掉</p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>彩虹六号:围攻无法登录报错3-0x0001000b</title>
-      <link href="/20230625/2023-06-25-rainbow6-network-error/"/>
-      <url>/20230625/2023-06-25-rainbow6-network-error/</url>
+      <link href="/2023-06-25-rainbow6-network-error/"/>
+      <url>/2023-06-25-rainbow6-network-error/</url>
       
         <content type="html"><![CDATA[<h1 id="不要使用TUN模式"><a href="#不要使用TUN模式" class="headerlink" title="不要使用TUN模式"></a>不要使用TUN模式</h1><p>关闭Clash的TUN模式或Netch加速器!! 临时改用系统代理并开启其他加速器!!</p>]]></content>
       
@@ -18,10 +31,10 @@
     
     <entry>
       <title>Windows系统使用傲梅工具迁移后产生的问题</title>
-      <link href="/20230624/2023-06-24-windows-aomei-move/"/>
-      <url>/20230624/2023-06-24-windows-aomei-move/</url>
+      <link href="/2023-06-24-windows-aomei-move/"/>
+      <url>/2023-06-24-windows-aomei-move/</url>
       
-        <content type="html"><![CDATA[<h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><p>因为笔记本更换了硬盘，所以系统盘也需要跟着换，就用了第三方PE内置的傲梅分区工具迁移系统<br>平时经常使用休眠(Hibernate)功能，不需要关机就能保存未完成的工作，比关机开机更方便一些，数据是存储在硬盘中，启动的时候再调用到内存中，并不费电<br>但是自从系统迁移后，晚上工作未完成第二天早上要唤醒的时候，总是重新开机，一开始我以为是没休眠成功，导致系统还在工作，把电量耗完了(学校宿舍晚上断电)<br>但是端午期间回家也出现了这个问题，可是疑惑的点在于我家并不会断电<br>于是我尝试休眠后立即唤醒，果然，还是从0启动系统<br>上网搜了一圈，是傲梅迁移系统的时候ESP分区出了问题</p><h1 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h1><p><em>不需要PE盘，但是期间不要重启电脑</em><br>使用Diskgenius等分区工具，将引导的ESP分区格式化，它会自动分配一个盘符如G:<br>打开Windows Powershell(Administrator)，输入<br>bcdboot C:\Windows(系统所在位置) &#x2F;s G:(ESP分区的盘符) &#x2F;f uefi (可选:&#x2F;l zh-cn)<br>然后Restart重启电脑一次，如果使用Power Off或者Hibernate是不行的，因为需要重启生效，如果选了这两种还会自动开机&#x2F;唤醒，然后你就不得不Restart<br>最后发现问问题已经解决，将ESP分区指派的盘符删除即可</p>]]></content>
+        <content type="html"><![CDATA[<h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><p>因为笔记本更换了硬盘，所以系统盘也需要跟着换，就用了第三方PE内置的傲梅分区工具迁移系统<br>平时经常使用休眠(Hibernate)功能，不需要关机就能保存未完成的工作，比关机开机更方便一些，数据是存储在硬盘中，启动的时候再调用到内存中，并不费电<br>但是自从系统迁移后，晚上工作未完成第二天早上要唤醒的时候，总是重新开机，一开始我以为是没休眠成功，导致系统还在工作，把电量耗完了(学校宿舍晚上断电)<br>但是端午期间回家也出现了这个问题，可是疑惑的点在于我家并不会断电<br>于是我尝试休眠后立即唤醒，果然，还是从0启动系统<br>上网搜了一圈，是傲梅迁移系统的时候ESP分区出了问题</p><h1 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h1><p><em>不需要PE盘，但是期间不要重启电脑</em><br>使用Diskgenius等分区工具，将引导的ESP分区格式化，它会自动分配一个盘符如G:<br>打开Windows Powershell(Administrator)，输入<br>bcdboot C:\Windows(系统所在位置) &#x2F;s G:(ESP分区的盘符) &#x2F;f uefi &#x2F;l zh-cn(语言,可选)<br>然后Restart重启电脑一次，如果使用Power Off或者Hibernate是不行的，因为需要重启生效，如果选了这两种还会自动开机&#x2F;唤醒，然后你就不得不Restart<br>最后发现问问题已经解决，将ESP分区指派的盘符删除即可</p>]]></content>
       
       
       
@@ -31,10 +44,10 @@
     
     <entry>
       <title>Purple Software Galgame解包</title>
-      <link href="/20230623/2023-06-23-purple-software-unpack/"/>
-      <url>/20230623/2023-06-23-purple-software-unpack/</url>
+      <link href="/2023-06-23-purple-software-unpack/"/>
+      <url>/2023-06-23-purple-software-unpack/</url>
       
-        <content type="html"><![CDATA[<p>举例游戏为 天津罪 Amatsutsumi[GOG]</p><h1 id="关于video文件夹内OP的cmv文件提取视频"><a href="#关于video文件夹内OP的cmv文件提取视频" class="headerlink" title="关于video文件夹内OP的cmv文件提取视频"></a>关于video文件夹内OP的cmv文件提取视频</h1><h2 id="下载extractor"><a href="#下载extractor" class="headerlink" title="下载extractor"></a>下载extractor</h2><p><a href="https://dl.0251520.xyz/files/website/resource/extractor.zip">https://dl.0251520.xyz/files/website/resource/extractor.zip</a></p><h2 id="更改语言"><a href="#更改语言" class="headerlink" title="更改语言"></a>更改语言</h2><p>默认语言是Russian 可能会显示为乱码<br>进入第三个选项 更改语言为English即可</p><h2 id="转换cmv文件"><a href="#转换cmv文件" class="headerlink" title="转换cmv文件"></a>转换cmv文件</h2><p>右上角Select 选择单文件即可<br>Formats点击下方Load按键 选择Video.fmt<br>点击Start 搜索到一个ogg(音频)和一个ogm文件(视频)<br>用软件(如格式工厂)合成到一起即可</p><h1 id="关于pack文件夹内bg及voice等文件的提取"><a href="#关于pack文件夹内bg及voice等文件的提取" class="headerlink" title="关于pack文件夹内bg及voice等文件的提取"></a>关于pack文件夹内bg及voice等文件的提取</h1><h2 id="下载vn-tools大佬开源的arc-unpacker-并解压到任意位置"><a href="#下载vn-tools大佬开源的arc-unpacker-并解压到任意位置" class="headerlink" title="下载vn-tools大佬开源的arc_unpacker 并解压到任意位置"></a>下载vn-tools大佬开源的arc_unpacker 并解压到任意位置</h2><p><a href="https://github.com/vn-tools/arc_unpacker/releases">https://github.com/vn-tools/arc_unpacker/releases</a></p><h2 id="具体使用方法见文档"><a href="#具体使用方法见文档" class="headerlink" title="具体使用方法见文档"></a>具体使用方法见文档</h2><p>在解压后的文件夹内Shift+右键 Open command window here并输入<br>arc_unpacker D:\Amatsutsumi\data\pack\voice.cpz(文件位置，可以直接拖进cmd快速输入) –dec&#x3D;purple-software&#x2F;cpz6(解码方式，此处我使用cpz6)</p><h2 id="Purple-Software此软件的所有可解码格式"><a href="#Purple-Software此软件的所有可解码格式" class="headerlink" title="Purple Software此软件的所有可解码格式"></a>Purple Software此软件的所有可解码格式</h2><ul><li>purple-software&#x2F;cpz5</li><li>purple-software&#x2F;cpz6</li><li>purple-software&#x2F;pb3</li><li>purple-software&#x2F;ps2</li></ul><p>可以自行使用”arc_unpacker -d&#x3D;”指令查看</p>]]></content>
+        <content type="html"><![CDATA[<p>举例游戏为 <a href="https://www.gog.com/game/amatsutsumi">天津罪 Amatsutsumi[GOG]</a></p><h1 id="关于video文件夹内OP的cmv文件提取视频"><a href="#关于video文件夹内OP的cmv文件提取视频" class="headerlink" title="关于video文件夹内OP的cmv文件提取视频"></a>关于video文件夹内OP的cmv文件提取视频</h1><h2 id="下载extractor"><a href="#下载extractor" class="headerlink" title="下载extractor"></a>下载extractor</h2><p><a href="https://dl.0251520.xyz/files/website/resource/extractor.zip">下载链接</a></p><h2 id="更改语言"><a href="#更改语言" class="headerlink" title="更改语言"></a>更改语言</h2><p>默认语言是Russian 可能会显示为乱码<br>进入第三个选项 更改语言为English即可<br><img src="/pic/2023-06-23-purple-software-unpack/options.jpg" alt="option"></p><h2 id="转换cmv文件"><a href="#转换cmv文件" class="headerlink" title="转换cmv文件"></a>转换cmv文件</h2><p>右上角Select 选择单文件即可<br>Formats点击下方Load按键 选择Sounds.fmt(别选错了!!不是Video.fmt)<br><img src="/pic/2023-06-23-purple-software-unpack/formats.jpg" alt="formats"><br>点击Start 搜索到一个ogg(音频)和一个ogm文件(视频)<br><img src="/pic/2023-06-23-purple-software-unpack/founded.jpg" alt="founded"><br>用软件(如格式工厂)合成到一起即可</p><h1 id="关于pack文件夹内bg及voice等文件的提取"><a href="#关于pack文件夹内bg及voice等文件的提取" class="headerlink" title="关于pack文件夹内bg及voice等文件的提取"></a>关于pack文件夹内bg及voice等文件的提取</h1><h2 id="下载vn-tools大佬开源的arc-unpacker-并解压到任意位置"><a href="#下载vn-tools大佬开源的arc-unpacker-并解压到任意位置" class="headerlink" title="下载vn-tools大佬开源的arc_unpacker 并解压到任意位置"></a>下载vn-tools大佬开源的arc_unpacker 并解压到任意位置</h2><p><a href="https://github.com/vn-tools/arc_unpacker/releases">https://github.com/vn-tools/arc_unpacker/releases</a></p><h2 id="具体使用方法见文档"><a href="#具体使用方法见文档" class="headerlink" title="具体使用方法见文档"></a>具体使用方法见文档</h2><p>在解压后的文件夹内Shift+右键 Open command window here并输入<br>arc_unpacker D:\Amatsutsumi\data\pack\voice.cpz(文件位置，可以直接拖进cmd快速输入) --dec&#x3D;purple-software&#x2F;cpz6(解码方式，此处我使用cpz6)</p><h2 id="Purple-Software此软件的所有可解码格式"><a href="#Purple-Software此软件的所有可解码格式" class="headerlink" title="Purple Software此软件的所有可解码格式"></a>Purple Software此软件的所有可解码格式</h2><ul><li>purple-software&#x2F;cpz5</li><li>purple-software&#x2F;cpz6</li><li>purple-software&#x2F;pb3</li><li>purple-software&#x2F;ps2</li></ul><p>可以自行使用”arc_unpacker -d&#x3D;”指令查看所有支持的后缀名</p>]]></content>
       
       
       
@@ -44,8 +57,8 @@
     
     <entry>
       <title>Steam如何跳过游戏更新教程 例:Beat Saber</title>
-      <link href="/20230614/2023-06-14-skip-update-steam-games-beatsaber/"/>
-      <url>/20230614/2023-06-14-skip-update-steam-games-beatsaber/</url>
+      <link href="/2023-06-14-skip-update-steam-games-beatsaber/"/>
+      <url>/2023-06-14-skip-update-steam-games-beatsaber/</url>
       
         <content type="html"><![CDATA[<p>tip.此方法应该也适用其他大部分不更新也能正常游玩的单机游戏</p><h1 id="前因"><a href="#前因" class="headerlink" title="前因"></a>前因</h1><p>今天早上Beat Saber更新了 正好想着写写如何跳过更新的文章</p><p>由于平时经常打VR游戏节奏光剑 大部分人都会打Mods 能够增强游戏性<br>可以添加很多自定义歌曲 也就是社区大佬自制谱给大家拿出来玩 也有人做了一个排行榜网站 插件内置到游戏可以自己上传 其他功能包括一些修改人物、场景、方块模型 或者修改方块出现的反应时间<br>官方是不封杀Mod的 也并不是有意使Mod失效的 但是每次更新一个小版本 即使是更新了一两首歌曲 也会导致Mod失效 而且各个版本Mod不互通 这就需要等模组制作大佬们更新 一般1-7天<br>期间如果想玩的话 只能在没有Mod的情况下游玩 或者部分大佬更新了部分模组这样玩<br>我之前刚入坑这个游戏的时候不怎么懂 但是游戏已经更新了 就上网搜大佬的解决方法 做法是<br>在更新之前备份原整个游戏的目录 更新之后再把新的文件夹删掉 把原目录改名为游戏目录<br>如果更新完了已经不可挽回的话 就备份歌曲文件夹、场景文件夹、人物模型、之前打歌的成绩数据(userdata)文件夹 然后使用Steam自带的download_depot来返回原版本<br>但是像我这种下了1000+首歌的人很不友好 而且文件很多很碎 文件夹也占了20个G</p><h1 id="解决思路"><a href="#解决思路" class="headerlink" title="解决思路"></a>解决思路</h1><p>首先如果你想让某个游戏不自动更新 右键该游戏点击属性-更新</p><p>于是我想了想所有方法归根结底的解决方案 不就是把app的manifest id改成最新的就可以了 上面的原理也是这样<br>Steam检查软件&#x2F;游戏的更新不会去扫你每个游戏目录和最新版是否一样 都会在更新前或者更新后对app进行标记 所以每次只需要对比本地的manifest和官方服务器最新的manifest版本是否一致即可 我可能说的不太明白<br>先打开Beat Saber对应的app manifest文件 位于steamapps目录下<br>登录steamdb搜索Beat Saber或者Steam商店找到该游戏 先获取它的appid</p><p>看到对应的appid是620980 去找这个appmanifest_620980.acf文件</p><p>双击记事本打开后里面有很多内容</p><p>其中”StageFlags”为4的时候 意思是该app已经完全安装 其他值的时候都没有是完全安装的最新版 具体数值对应意思可查询(<a href="https://github.com/lutris/lutris/blob/master/docs/steam.rst">https://github.com/lutris/lutris/blob/master/docs/steam.rst</a>)<br>如果更新启动了 它有一个副作用是会更改BytesDownloaded 这几个参数都是明面意思 代表着需要下载多少字节、已下载多少字节<br>我们可以先打开并参考其他已是最新版本的游戏manifest文件查看数值 BytesToDownload和BytesDownloaded会是对应相同的 BytesToStage和BytesStaged也是对应相同的<br>我们把他们都改为0 也就是不需要下载 并把”StageFlags”值改为4<br>然后我们看到下面这个app还对应了一个depot 我们前往steamdb搜索Beat Saber 点击左方的Depots</p><p>里面有一个对应的depot id 620981 这个是游戏本体 点620981这串id会进到下一个页面</p><p>点击左方的Manifests 可以看到历史版本的各个manifest数值 我们复制13小时前更新的最新的”8042804988990059618” 粘贴到之前acf文件里的manifest参数 size甚至不用更改</p><p>文件更改到这里就完成了 Ctrl+S进行保存 然后我们退出Steam并重新启动 让它重新加载我们更改过的manifest文件</p><p>可以看到Beat Saber已经不在更新列表了 我们也是可以正常启动不会触发更新的 感谢您看到这里</p><p>其实理论上可以做一个小程序的 但是技术力不是很好哈哈哈</p>]]></content>
       
@@ -57,8 +70,8 @@
     
     <entry>
       <title>Demo</title>
-      <link href="/20230608/2023-06-08-demo/"/>
-      <url>/20230608/2023-06-08-demo/</url>
+      <link href="/2023-06-08-demo/"/>
+      <url>/2023-06-08-demo/</url>
       
         <content type="html"><![CDATA[<h1 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a>Demo</h1>]]></content>
       
@@ -70,8 +83,8 @@
     
     <entry>
       <title>Steam游戏安装在移动硬盘后每次启动都要更新下载Steamworks常见可再发行文件</title>
-      <link href="/20230424/2023-04-24-steamworks-redownload/"/>
-      <url>/20230424/2023-04-24-steamworks-redownload/</url>
+      <link href="/2023-04-24-steamworks-redownload/"/>
+      <url>/2023-04-24-steamworks-redownload/</url>
       
         <content type="html"><![CDATA[<p>希望Steam可以出一个可再发行文件的可选功能 不自动删除无依赖的运行库</p><p>先讲讲我理解的 每个游戏所需的运行库不同 而他们的运行库都存放在Steamworks Shared里面 也就是可再发行文件<br>我随便编一个例子 比如说我有CS:GO这款游戏 它可能需要的运行库是DotNet4.0和VC2013<br>Steam就会帮你下载这些运行库 然后我在移动硬盘中下载了Apex英雄 它可能需要的运行库是DirectX-Jun2010和DotNet4.7<br>当我拔出移动硬盘的时候 检测到Apex英雄没有被下载了 Steam不会考虑那么多 它觉得你电脑里面不存在就是卸载了 于是把Apex英雄依赖的两个运行库DirectX-Jun2010和DotNet4.7删除了<br>当你再下载这个游戏的时候 运行库再一并下载 或者是其他游戏有依赖这个运行库的时候<br>这就导致 我每次插上&#x2F;拔下移动硬盘 需要更新Steamworks Shared<br>拔下的时候 是检测到多于的运行库 帮你删除掉 可以发现是一瞬间完成的<br>插上的时候 是检测到你下载的游戏依赖的运行库没有下载 所以出现下载条帮你下载 而且游戏多基本上依赖的运行库就多种多样 我以前没设置的时候每次要更新700M 要崩溃了</p><p>我的做法是<br>我将steamapps内的Stemworks Shared文件夹(约1.1GB)设置权限 在安全选项卡去掉Authenticated Users和Users的删除权限<br>Steam在你拔下移动硬盘的时候会出现下载任务 尝试删除多余的运行库 但是由于没有管理员权限会删不掉 这时候提示你缺少文件权限missing file privileges而无法完成这个下载任务<br>但是这时候你运行一些需要运行库的游戏的时候 无法运行 不论你运行什么都会提示这条missing顺带给你一个没有权限的路径(除了少部分无需运行库的小游戏可以直接运行)<br>当你插上硬盘的时候也就无需再下载一遍运行库了</p><p>我的这个做法主要是解决我这种外接电源的硬盘盒 电脑开机自启动Steam检测不到硬盘就会自己删掉多于的运行库导致我很苦恼<br>如果你想要在不接移动硬盘的时候仍旧可以正常游玩其他游戏 你可以备份Steamworks Shared文件夹 也不大 我的是1.1GB 不接移动硬盘会自动删除 接上移动硬盘的时候再复制覆盖到原文件夹 我有时候会这样做<br>希望valve能考虑到这些问题</p><p>Steam它这个烦人就烦在 即使你电脑里面有必要的运行库了 但是照样会给你下载安装包 以备不时之需</p>]]></content>
       
