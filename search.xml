@@ -4,11 +4,11 @@
   
     
     <entry>
-      <title>记录第一次Steam走P2P下载游戏</title>
-      <link href="/2023-07-23-steam-p2p/"/>
-      <url>/2023-07-23-steam-p2p/</url>
+      <title>记录第一次Steam极多线程下载游戏</title>
+      <link href="/2023-07-23-steam-multi/"/>
+      <url>/2023-07-23-steam-multi/</url>
       
-        <content type="html"><![CDATA[<p>众所周知Steam下载是通过CDN为用户提供下载游戏服务<br>CDN域名对照表见<a href="https://www.dogfight360.com/blog/knowledge-base/%E5%A6%82%E4%BD%95%E6%8F%90%E9%AB%98steam%E7%9A%84%E4%B8%8B%E8%BD%BD%E9%80%9F%E5%BA%A6%E4%B8%AD%E5%9B%BD%E5%A4%A7%E9%99%86%E5%9C%B0%E5%8C%BA/">羽翼城个人博客-如何提高Steam的下载速度</a></p><p>今天早上在下载PUBG的时候 看到Clash内Connection出现了大批量裸IP直连 800+条连接 平时不可能这么多 所以我怀疑是不是哪里出问题了导致内网循环<br>思考了一阵子也没有开什么其他的软件 于是锁定了Steam<br>但是我一般api.steampowered.com域名(用于检测IPCountry)会走代理<br>所以下载的CDN一般是分配到V社的steamcontent.com<br>但是今天开机自启动似乎Steam比Clash更快一些 于是没有走代理 IPCountry就变成了CN<br>理所当然CDN就分配到国内 我一般是阿里云xz.pphimalayanrt.com 有时候走白山云st.dl.eccdnx.com<br>我在Clash的Connection内按下载速度排序 隐隐约约看到了xz.pphimalayanrt.com 但是下载速度2-3M&#x2F;s<br>可是我Steam内下载显示下载速度在80M&#x2F;s左右浮动 如图<br><img src="/pic/2023-07-23-steam-p2p/steam-download.png" alt="steam-download"></p><p>我先打开控制台steam:&#x2F;&#x2F;open&#x2F;console<br>然后使用download_sources查看下载分配的域名以及速度<br><img src="/pic/2023-07-23-steam-p2p/download-sources.jpg" alt="download-sources"><br>好家伙 白山云域名st.dl.eccdnx.com下载速度60+M&#x2F;s 但是我在Connection里面却看不到这个域名啊</p><p><img src="/pic/2023-07-23-steam-p2p/clash-before.png" alt="clash-before"><br>我先随便取两个IP 拿到ping0.cc搜索 基本都是我所在省份的家庭宽带IP 根本没见到机房IDC的IP<br>而且再加上随机的端口 而不是80&#x2F;443或者一些有规律的端口<br>我就怀疑是类似BT的P2P传输 而且PUBG算是挺热门的游戏了 很多人电脑里面都有<br>而且我的下载速度不稳定 最开始在20-80M&#x2F;s 后面才80M&#x2F;s浮动</p><p>以下是一些猜测<br>下载其他游戏的时候 也有可能是下载CDN没分配到白山云 我觉得更有可能是我玩的其他游戏冷门一些 阿里云CDN服务器下载速度快很多 白山云就没走P2P 直接去他们的CDN服务器下载的<br>之前我就有听闻说Steam的下载部分是搞BT的大佬做的 我觉得这次更多是白山云那边整的新活 比较其他CDN都在正常工作(指从自家CDN服务器提供下载)</p><p>下载完成后Connection数量恢复正常<br><img src="/pic/2023-07-23-steam-p2p/clash-after.png" alt="clash-after"></p>]]></content>
+        <content type="html"><![CDATA[<p>众所周知Steam下载是通过CDN为用户提供下载游戏服务<br>CDN域名对照表见<a href="https://www.dogfight360.com/blog/knowledge-base/%E5%A6%82%E4%BD%95%E6%8F%90%E9%AB%98steam%E7%9A%84%E4%B8%8B%E8%BD%BD%E9%80%9F%E5%BA%A6%E4%B8%AD%E5%9B%BD%E5%A4%A7%E9%99%86%E5%9C%B0%E5%8C%BA/">羽翼城个人博客-如何提高Steam的下载速度</a></p><p>今天早上在下载PUBG的时候 看到Clash内Connection出现了大批量裸IP直连 800+条连接 平时不可能这么多 所以我怀疑是不是哪里出问题了导致内网循环<br>思考了一阵子也没有开什么其他的软件 于是锁定了Steam<br>但是我一般api.steampowered.com域名(用于检测IPCountry)会走代理<br>所以下载的CDN一般是分配到V社的steamcontent.com<br>但是今天开机自启动似乎Steam比Clash更快一些 于是没有走代理 IPCountry就变成了CN<br>理所当然CDN就分配到国内 我一般是阿里云xz.pphimalayanrt.com 有时候走白山云st.dl.eccdnx.com<br>我在Clash的Connection内按下载速度排序 隐隐约约看到了xz.pphimalayanrt.com 但是下载速度2-3M&#x2F;s<br>可是我Steam内下载显示下载速度在80M&#x2F;s左右浮动 如图<br><img src="/pic/2023-07-23-steam-multi/steam-download.png" alt="steam-download"></p><p>我先打开控制台steam:&#x2F;&#x2F;open&#x2F;console<br>然后使用download_sources查看下载分配的域名以及速度<br><img src="/pic/2023-07-23-steam-multi/download-sources.jpg" alt="download-sources"><br>好家伙 白山云域名st.dl.eccdnx.com下载速度60+M&#x2F;s 但是我在Connection里面却看不到这个域名啊</p><p><img src="/pic/2023-07-23-steam-multi/clash-before.png" alt="clash-before"><br>我先随便取两个IP 拿到ping0.cc搜索 基本都是我所在省份的家庭宽带IP 根本没见到机房IDC的IP<br>而且再加上随机的端口 而不是80&#x2F;443或者一些有规律的端口<br>我就怀疑是类似BT的P2P传输 而且PUBG算是挺热门的游戏了<br>而且我的下载速度不稳定 最开始在20-80M&#x2F;s 后面才80M&#x2F;s浮动</p><p>以下是一些猜测<br>下载其他游戏的时候 也有可能是下载CDN没分配到白山云 我觉得更有可能是我玩的其他游戏冷门一些 阿里云CDN服务器下载速度快很多 白山云就没走极多线程 直接去他们域名的CDN服务器下载的<br>之前就有听闻说Steam的下载部分是搞BT的大佬做的 我觉得这次更多是白山云那边整的新活 毕竟其他CDN都在正常工作(指从自家CDN服务器提供下载)</p><p>下载完成后Connection数量恢复正常<br><img src="/pic/2023-07-23-steam-multi/clash-after.png" alt="clash-after"></p>]]></content>
       
       
       
@@ -30,11 +30,11 @@
     
     
     <entry>
-      <title>彩虹六号:围攻无法登录报错3-0x0001000b</title>
-      <link href="/2023-06-25-rainbow6-network-error/"/>
-      <url>/2023-06-25-rainbow6-network-error/</url>
+      <title>代理导致各类游戏网络问题合集</title>
+      <link href="/2023-06-25-game-network-error/"/>
+      <url>/2023-06-25-game-network-error/</url>
       
-        <content type="html"><![CDATA[<h1 id="不要使用TUN模式"><a href="#不要使用TUN模式" class="headerlink" title="不要使用TUN模式"></a>不要使用TUN模式</h1><p>关闭Clash的TUN模式或Netch加速器!! 临时改用系统代理并开启其他加速器!!</p>]]></content>
+        <content type="html"><![CDATA[<h1 id="彩虹六号-围攻"><a href="#彩虹六号-围攻" class="headerlink" title="彩虹六号:围攻"></a>彩虹六号:围攻</h1><h2 id="无法登录报错3-0x0001000b"><a href="#无法登录报错3-0x0001000b" class="headerlink" title="无法登录报错3-0x0001000b"></a>无法登录报错3-0x0001000b</h2><p>关闭Clash&#x2F;Nekoray&#x2F;V2rayN的TUN模式或Netch!! 临时改用系统代理并开启其他加速器!!</p><h1 id="VRChat"><a href="#VRChat" class="headerlink" title="VRChat"></a>VRChat</h1><h2 id="卡登录不进World-x2F-切换World时报错The-world-is-not-compatible-with-your-platform"><a href="#卡登录不进World-x2F-切换World时报错The-world-is-not-compatible-with-your-platform" class="headerlink" title="卡登录不进World &#x2F; 切换World时报错The world is not compatible with your platform"></a>卡登录不进World &#x2F; 切换World时报错The world is not compatible with your platform</h2><p>这个不是World不支持你所在平台的问题 即使你尝试返回Home或Default Home也报错这个问题<br>是因为VRChat在用UDP协议对接api.vrchat.com时出现了错误 因为你的TUN模式&#x2F;系统代理选择的节点不能使用UDP协议<br>正常来说一般应用程序TCP会走系统代理 游戏所使用的UDP不会走系统代理 而是无视直接走网卡直连 但是这个游戏逆天一点</p><h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>如果你的节点支持UDP协议 那么在Clash中Proxies添加”udp: true” 保存后该节点下面会有一个UDP的标识 就可以正常游玩了</p>]]></content>
       
       
       
