@@ -1,22 +1,25 @@
 // ==UserScript==
 // @name         SteamDB Sales CNPrice Injector
 // @namespace    https://liangying.eu.org/
-// @version      0.5
+// @version      0.7
 // @description  Adds CNPrice column to SteamDB sales page with selectable currency conversions.
 // @author       LiangYing
 // @match        https://steamdb.info/sales/*
 // @grant        GM_xmlhttpRequest
 // @connect      store.steampowered.com
+// @connect      api.exchangerate-api.com
 // @icon         https://store.steampowered.com/favicon.ico
 // @license      MIT
 // @run-at       document-end
+// @downloadURL  https://update.greasyfork.org/scripts/490272/SteamDB%20Sales%20CNPrice%20Injector.user.js
+// @updateURL    https://update.greasyfork.org/scripts/490272/SteamDB%20Sales%20CNPrice%20Injector.meta.js
 // ==/UserScript==
 
 (function() {
     'use strict';
 
     // 汇率对象
-    const exchangeRates = {
+    let exchangeRates = {
         CNY: 1,
         JPY: 20.5,
         HKD: 1.09,
@@ -29,6 +32,48 @@
     };
     let currentRate = exchangeRates.CNY; // 设定默认汇率
 
+    // 创建一个函数用来更新汇率
+    function updateExchangeRates(callback) {
+        // 使用 GM_xmlhttpRequest 或其他HTTP请求方法获取API数据
+        GM_xmlhttpRequest({
+            method: 'GET',
+            url: 'https://api.exchangerate-api.com/v4/latest/CNY',
+            onload: function(response) {
+                if (response.status === 200 && response.responseText) {
+                    let result = JSON.parse(response.responseText);
+                    // 根据API响应更新汇率
+                    exchangeRates = result.rates;
+
+                    // 仅更新脚本中使用的汇率
+                    exchangeRates.JPY = result.rates.JPY;
+                    exchangeRates.HKD = result.rates.HKD;
+                    exchangeRates.USD = result.rates.USD;
+                    exchangeRates.RUB = result.rates.RUB;
+                    exchangeRates.PHP = result.rates.PHP;
+                    exchangeRates.INR = result.rates.INR;
+                    exchangeRates.KRW = result.rates.KRW;
+                    exchangeRates.CAD = result.rates.CAD;
+
+                    // 调用回调函数来继续执行其他依赖实时汇率的代码
+                    if (typeof callback === 'function') {
+                        callback();
+                    }
+                } else {
+                    console.error('Failed to fetch exchange rates:', response.status);
+                }
+            },
+            onerror: function(error) {
+                console.error('Error occurred while fetching exchange rates:', error);
+            }
+        });
+    }
+
+    // 获取汇率然后进行初始化
+    updateExchangeRates(function() {
+        // 在此处进行需要依赖实时汇率的初始化
+        refreshPrices();
+    });
+
     // 解析价格文本中的数字
     function parsePrice(priceText) {
         return parseFloat(priceText.replace(/[^0-9.]/g, ''));
@@ -37,6 +82,7 @@
     // 添加CNPrice列头
     const header = document.querySelector('.table-sales thead tr');
     const cnPriceHeader = document.createElement('th');
+    cnPriceHeader.style.cursor = 'pointer'; // 设置鼠标悬停时的光标为指针
     cnPriceHeader.innerHTML = 'CNPrice';
     header.appendChild(cnPriceHeader);
 
@@ -50,42 +96,41 @@
 
     // 获取并显示国区价格，并转换为所选货币后比较
     function fetchAndDisplayCNPrice(appid, cell, rate) {
-        const url = `https://store.steampowered.com/api/appdetails/?appids=${appid}&cc=cn`;
+            const url = `https://store.steampowered.com/api/appdetails/?appids=${appid}&cc=cn`;
+            GM_xmlhttpRequest({
+                method: 'GET',
+                url: url,
+                onload: function(response) {
+                    try {
+                        const data = JSON.parse(response.responseText);
+                        const priceInfo = data[appid].data.price_overview;
+                        if (priceInfo) {
+                            const cnPrice = priceInfo.final / 100; // 价格以分为单位，转换为元
+                            const convertedPrice = cnPrice * rate; // 使用所选汇率转换价格
+                            const comparisonPriceCell = cell.parentElement.children[4];
+                            const comparisonPrice = parsePrice(comparisonPriceCell.textContent);
+                            const percentage = (comparisonPrice * 100 / convertedPrice).toFixed(2); // 比例计算
+                            cell.textContent = `${convertedPrice.toFixed(2)} (${percentage}%)`; // 显示转换后的价格和百分比
 
-        GM_xmlhttpRequest({
-            method: 'GET',
-            url: url,
-            onload: function(response) {
-                try {
-                    const data = JSON.parse(response.responseText);
-                    const priceInfo = data[appid].data.price_overview;
-                    if (priceInfo) {
-                        const cnPrice = priceInfo.final / 100; // 价格以分为单位，转换为元
-                        const convertedPrice = cnPrice * rate; // 使用所选汇率转换价格
-                        const comparisonPriceCell = cell.parentElement.children[4];
-                        const comparisonPrice = parsePrice(comparisonPriceCell.textContent);
-                        const percentage = (comparisonPrice * 100 / convertedPrice).toFixed(2); // 比例计算
-                        cell.textContent = `${convertedPrice.toFixed(2)} (${percentage}%)`; // 显示转换后的价格和百分比
-
-                        // 比较价格并设置颜色
-                        if (convertedPrice > comparisonPrice) {
-                            cell.style.color = 'green';
+                            // 比较价格并设置颜色
+                            if (convertedPrice > comparisonPrice) {
+                                cell.style.color = 'green';
+                            } else {
+                                cell.style.color = 'red';
+                            }
                         } else {
-                            cell.style.color = 'red';
+                            cell.textContent = 'N/A';
                         }
-                    } else {
-                        cell.textContent = 'N/A';
+                    } catch (error) {
+                        console.error('Error fetching CN price:', error);
+                        cell.textContent = 'Error';
                     }
-                } catch (error) {
+                },
+                onerror: function(error) {
                     console.error('Error fetching CN price:', error);
                     cell.textContent = 'Error';
                 }
-            },
-            onerror: function(error) {
-                console.error('Error fetching CN price:', error);
-                cell.textContent = 'Error';
-            }
-        });
+        },200);
     }
 
     // 创建汇率选择框并添加到页面
@@ -112,8 +157,9 @@
 
     // 刷新价格的函数, 以适应表格更新和新增行
     function refreshPrices() {
+        let index = 0;
         if(currentRate == 1) {
-        return;
+            return;
         }
         // 获取全部当前存在的行，包括新添加的行
         const rows = document.querySelectorAll('.table-sales tbody tr');
@@ -132,10 +178,12 @@
             // 清除原有的价格信息
             cnPriceCell.textContent = '';
 
+        setTimeout(function() {
             // 为每个行重新获取和显示价格信息
             if (appid) {
                 fetchAndDisplayCNPrice(appid, cnPriceCell, currentRate);
             }
+        }, 500 * index++); // index * 500ms 为每个请求设置不同的延迟时间
         });
     }
 
@@ -165,5 +213,35 @@
         if (paginationControl) lastPaginationSnapshot = paginationControl.innerText;
         setInterval(checkForPaginationUpdates, 1000); // 1秒检查一次
     });
+
+    function sortTableByCNPrice() {
+        let rowsArray = Array.from(document.querySelectorAll('.table-sales tbody tr'));
+
+        // Sort rows by the CNPrice percentage
+        rowsArray.sort(function(a, b) {
+            // 获取a行和b行的CNPrice单元格
+            let cnPriceA = a.querySelector('.cn-price');
+            let cnPriceB = b.querySelector('.cn-price');
+            // 提取出百分比数值
+            let percentageA = getPercentage(cnPriceA.textContent);
+            let percentageB = getPercentage(cnPriceB.textContent);
+
+            //基于百分比compare
+            return percentageA - percentageB;
+        });
+
+        // 将排序后的行放回页面中
+        const tbody = document.querySelector('.table-sales tbody');
+        tbody.innerHTML = ''; // 清除现有行
+        rowsArray.forEach(function(row) {
+            tbody.appendChild(row); // 添加排序后的行
+        });
+    }
+
+    function getPercentage(text) {
+        // 提取百分比并转换为浮点数
+        let match = text.match(/(\d+\.?\d*)%/);
+        return match ? parseFloat(match[1]) : 0;
+    }
 
 })();
