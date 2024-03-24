@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         SteamDB Sales CNPrice Injector
 // @namespace    https://liangying.eu.org/
-// @version      0.7
+// @version      0.7.1
 // @description  Adds CNPrice column to SteamDB sales page with selectable currency conversions.
 // @author       LiangYing
 // @match        https://steamdb.info/sales/*
@@ -153,6 +153,11 @@
     rateSelect.addEventListener('change', function() {
         currentRate = exchangeRates[this.value];
         refreshPrices(); // 用户选择了不同的汇率，立即刷新价格
+    });
+
+    // CNPrice列头点击事件监听器用于排序
+    cnPriceHeader.addEventListener('click', function() {
+        sortTableByCNPrice();
     });
 
     // 刷新价格的函数, 以适应表格更新和新增行
